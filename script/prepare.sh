@@ -2,7 +2,6 @@
 name=`ls | grep *.mdb`
 filename=$(basename "$name")
 filename="${filename%.*}"
-echo $name
 
 IN=$(mdb-tables -d ";" "$name")
 IFS=';' read -ra TABLES <<< "$IN"
@@ -27,3 +26,5 @@ mv mdb_FunctionClassifiers_out.csv data/function-classifiers.csv
 mv mdb_StatusIndicators_out.csv data/status-indicators.csv
 mv subdivision-codes.tmp.csv data/subdivision-codes.csv
 rm *.csv
+
+ls -la data/
